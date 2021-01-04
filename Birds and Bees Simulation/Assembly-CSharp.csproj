@@ -68,6 +68,8 @@
     <Compile Include="Assets\Imports\PathCreator\Examples\Scripts\PathSceneTool.cs" />
     <Compile Include="Assets\Imports\PathCreator\Examples\Scripts\PathSpawner.cs" />
     <Compile Include="Assets\Imports\PathCreator\Examples\Scripts\RoadMeshCreator.cs" />
+    <Compile Include="Assets\Scripts\Bee.cs" />
+    <Compile Include="Assets\Scripts\Bird.cs" />
     <Compile Include="Assets\Scripts\EnvironmentConfig.cs" />
     <Compile Include="Assets\Scripts\Flower.cs" />
     <Reference Include="UnityEngine">
