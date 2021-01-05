@@ -5,9 +5,6 @@ public abstract class State : MonoBehaviour
     protected Bird bird;
     protected StateMachine stateMachine;
 
-    public float movementSpeed = 1.0f;
-    public float rotationSpeed = 45.0f;
-
     protected State(Bird bird, StateMachine stateMachine)
     {
         this.bird = bird;

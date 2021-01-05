@@ -13,7 +13,8 @@ public class Bird : MonoBehaviour
 
     public float movementSpeed = 1.0f;
     public float rotationSpeed = 45.0f;
-    public bool birdTrigger = false;
+    public bool chaseTrigger = false;
+    public bool caughtTrigger = false;
 
     public GameObject bee;
 
@@ -22,7 +23,7 @@ public class Bird : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         print("Bird Trigger from Bird");
-        birdTrigger = true;
+        chaseTrigger = true;
     }
 
     private void Start()
@@ -62,9 +63,21 @@ public class Bird : MonoBehaviour
 
     public void ChaseBee()
     {
+        if(bee == null)
+        {
+            return;
+        }
         Quaternion targetRotation = Quaternion.LookRotation(bee.transform.position - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 1 + Time.deltaTime);
-        transform.position += transform.forward * 5f * Time.deltaTime;
+        transform.position += transform.forward * 8f * Time.deltaTime;
+      
+        if(Vector3.Distance(bee.transform.position, transform.position) < 1.0f)
+        {
+            print("Touch");
+            Destroy(bee);
+            caughtTrigger = true;
+            
+        }
     }
 
 }

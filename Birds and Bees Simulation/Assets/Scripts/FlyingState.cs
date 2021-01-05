@@ -25,7 +25,7 @@ public class FlyingState : State
     public override void HandleInput()
     {
         base.HandleInput();
-        if(bird.birdTrigger == true)
+        if(bird.chaseTrigger == true)
         {
             print("Collision Trigger in Flying State");
             beeInRange = true;

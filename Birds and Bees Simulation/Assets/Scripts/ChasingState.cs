@@ -27,8 +27,16 @@ public class ChasingState : State
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        bird.StopFlying();
-        bird.ChaseBee();
+        if (!bird.caughtTrigger)
+        {
+            bird.StopFlying();
+            bird.ChaseBee();
+
+        }
+        if (bird.caughtTrigger)
+        {
+            stateMachine.ChangeState(bird.flying);
+        } 
     }
 
     public override void PhysicsUpdate()
