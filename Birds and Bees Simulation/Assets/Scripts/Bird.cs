@@ -1,15 +1,70 @@
-﻿using System.Collections;
+﻿using PathCreation.Examples;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Bird : MonoBehaviour
 {
+    public StateMachine movementSM;
+    public FlyingState flying;
+    public ChasingState chasing;
+    public EatingState eating;
+    public RestingState resting;
+
     public float movementSpeed = 1.0f;
     public float rotationSpeed = 45.0f;
+    public bool birdTrigger = false;
+
+    public GameObject bee;
+
+    public PathCreation.Examples.PathFollower pathFollower;
 
     private void OnTriggerEnter(Collider other)
     {
-        print("Bird Trigger");
-        transform.position += transform.forward * movementSpeed * Time.deltaTime;
+        print("Bird Trigger from Bird");
+        birdTrigger = true;
     }
+
+    private void Start()
+    {
+        Debug.Log("Bird");
+        movementSM = new StateMachine();
+        flying = new FlyingState(this, movementSM);
+        chasing = new ChasingState(this, movementSM);
+        eating = new EatingState(this, movementSM);
+        resting = new RestingState(this, movementSM);
+
+        movementSM.Initialize(flying);  // Default
+
+    }
+
+    private void Update()
+    {
+        movementSM.CurrentState.HandleInput();
+
+        movementSM.CurrentState.LogicUpdate();
+    }
+
+    private void FixedUpdate()
+    {
+        movementSM.CurrentState.PhysicsUpdate();
+    }
+
+    public void Flying()
+    {
+        gameObject.GetComponent<PathFollower>().enabled = true;  
+    }
+
+    public void StopFlying()
+    {
+        gameObject.GetComponent<PathFollower>().enabled = false;
+    }
+
+    public void ChaseBee()
+    {
+        Quaternion targetRotation = Quaternion.LookRotation(bee.transform.position - transform.position);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 1 + Time.deltaTime);
+        transform.position += transform.forward * 5f * Time.deltaTime;
+    }
+
 }

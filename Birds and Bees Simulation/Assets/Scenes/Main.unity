@@ -241,8 +241,8 @@ GameObject:
   - component: {fileID: 87876420}
   - component: {fileID: 87876419}
   - component: {fileID: 87876417}
-  - component: {fileID: 87876423}
   - component: {fileID: 87876418}
+  - component: {fileID: 87876423}
   m_Layer: 8
   m_Name: Bird1
   m_TagString: Untagged
@@ -257,7 +257,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 87876416}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33aabe1a2dec93349b06e6e5dc51bc06, type: 3}
   m_Name: 
@@ -364,11 +364,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 87876416}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f2af39929c93da4f824bf55054ebb60, type: 3}
+  m_Script: {fileID: 11500000, guid: 844b44c1348e74145be0dbf587568a84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flying: {fileID: 0}
+  chasing: {fileID: 0}
+  eating: {fileID: 0}
+  resting: {fileID: 0}
   movementSpeed: 1
   rotationSpeed: 45
+  birdTrigger: 0
+  bee: {fileID: 2125905265}
+  pathFollower: {fileID: 87876417}
 --- !u!1 &159756493
 GameObject:
   m_ObjectHideFlags: 0
@@ -1231,8 +1238,8 @@ GameObject:
   - component: {fileID: 481397763}
   - component: {fileID: 481397762}
   - component: {fileID: 481397760}
-  - component: {fileID: 481397766}
   - component: {fileID: 481397761}
+  - component: {fileID: 481397766}
   m_Layer: 8
   m_Name: Bird0
   m_TagString: Untagged
@@ -1247,7 +1254,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 481397759}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33aabe1a2dec93349b06e6e5dc51bc06, type: 3}
   m_Name: 
@@ -1354,11 +1361,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 481397759}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f2af39929c93da4f824bf55054ebb60, type: 3}
+  m_Script: {fileID: 11500000, guid: 844b44c1348e74145be0dbf587568a84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flying: {fileID: 0}
+  chasing: {fileID: 0}
+  eating: {fileID: 0}
+  resting: {fileID: 0}
   movementSpeed: 1
   rotationSpeed: 45
+  birdTrigger: 0
+  bee: {fileID: 2125905265}
+  pathFollower: {fileID: 481397760}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

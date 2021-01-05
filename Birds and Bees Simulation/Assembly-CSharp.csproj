@@ -70,8 +70,16 @@
     <Compile Include="Assets\Imports\PathCreator\Examples\Scripts\RoadMeshCreator.cs" />
     <Compile Include="Assets\Scripts\Bee.cs" />
     <Compile Include="Assets\Scripts\Bird.cs" />
+    <Compile Include="Assets\Scripts\BirdTrigger.cs" />
+    <Compile Include="Assets\Scripts\ChasingState.cs" />
+    <Compile Include="Assets\Scripts\EatingState.cs" />
     <Compile Include="Assets\Scripts\EnvironmentConfig.cs" />
     <Compile Include="Assets\Scripts\Flower.cs" />
+    <Compile Include="Assets\Scripts\FlyingState.cs" />
+    <Compile Include="Assets\Scripts\RestingState.cs" />
+    <Compile Include="Assets\Scripts\State.cs" />
+    <Compile Include="Assets\Scripts\StateMachine.cs" />
+    <Compile Include="Assets\Scripts\UIManager.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.11f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
