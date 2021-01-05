@@ -10,6 +10,7 @@ public class RestingState : State
 
     public override void Enter()
     {
+        Debug.Log("Resting");
         base.Enter();
     }
 
@@ -20,12 +21,22 @@ public class RestingState : State
 
     public override void HandleInput()
     {
-
+        base.HandleInput();
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+
+        bird.StopFlying();
+        bird.energy += 0.3f;
+        if(bird.energy >= 500.0f)  
+        {
+            stateMachine.ChangeState(bird.flying);  // Full energy
+        }
+
+       
+
     }
 
     public override void PhysicsUpdate()

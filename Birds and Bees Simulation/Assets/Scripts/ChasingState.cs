@@ -21,11 +21,13 @@ public class ChasingState : State
 
     public override void HandleInput()
     {
-        
+        base.HandleInput();
     }
 
     public override void LogicUpdate()
     {
+        bird.energy -= 0.8f;
+
         base.LogicUpdate();
         if (!bird.caughtTrigger)
         {
@@ -35,8 +37,13 @@ public class ChasingState : State
         }
         if (bird.caughtTrigger)
         {
-            stateMachine.ChangeState(bird.flying);
+            stateMachine.ChangeState(bird.eating);  // Caught Bee
         } 
+
+        if(bird.energy <= 0.0f)
+        {
+            stateMachine.ChangeState(bird.resting); // No Energy
+        }
     }
 
     public override void PhysicsUpdate()

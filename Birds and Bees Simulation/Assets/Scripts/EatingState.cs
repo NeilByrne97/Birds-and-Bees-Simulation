@@ -10,6 +10,7 @@ public class EatingState : State
 
     public override void Enter()
     {
+        Debug.Log("Eating");
         base.Enter();
     }
 
@@ -20,12 +21,14 @@ public class EatingState : State
 
     public override void HandleInput()
     {
-
+        base.HandleInput();
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        bird.energy = 500f; 
+        stateMachine.ChangeState(bird.flying);  // Full Energy 
     }
 
     public override void PhysicsUpdate()

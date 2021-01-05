@@ -36,10 +36,17 @@ public class FlyingState : State
     {
         base.LogicUpdate();
         bird.Flying();
+        bird.energy -= 0.4f;
 
         if (beeInRange)
         {
-            stateMachine.ChangeState(bird.chasing);
+            stateMachine.ChangeState(bird.chasing); // Bee in range
+        }
+
+        if (bird.energy <= 0.0f)    
+        {
+            print("bird is tired - go to bed");
+            stateMachine.ChangeState(bird.resting); // No energy
         }
     }
 

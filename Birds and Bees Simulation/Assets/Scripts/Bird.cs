@@ -18,6 +18,8 @@ public class Bird : MonoBehaviour
 
     public GameObject bee;
 
+    public float energy = 500f;
+
     public PathCreation.Examples.PathFollower pathFollower;
 
     private void OnTriggerEnter(Collider other)
@@ -44,6 +46,8 @@ public class Bird : MonoBehaviour
         movementSM.CurrentState.HandleInput();
 
         movementSM.CurrentState.LogicUpdate();
+
+        print("Bird energy is " + energy);
     }
 
     private void FixedUpdate()
